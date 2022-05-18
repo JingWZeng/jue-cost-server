@@ -50,10 +50,14 @@ module.exports = appInfo => {
   config.multipart = {
     mode: 'file',
   };
+  // config.cors = {
+  //   origin: '*', // 允许所有跨域访问
+  //   credentials: true, // 允许 Cookie 跨域跨域
+  //   allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+  // };
   config.cors = {
-    origin: '*', // 允许所有跨域访问
-    credentials: true, // 允许 Cookie 跨域跨域
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+    credentials: true,
+    origin: ctx => ctx.get('origin'),
   };
 
 
